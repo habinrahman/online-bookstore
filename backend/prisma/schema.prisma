@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model books {
+  id           Int       @id @default(autoincrement())
+  title        String    @db.VarChar(255)
+  author       String    @db.VarChar(255)
+  genre        String    @db.VarChar(100)
+  price        Decimal   @db.Decimal(10, 2)
+  availability String    @default("In Stock") @db.VarChar(20)
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model certificates {
+  id                String    @id @default(dbgenerated("gen_random_uuid()"))
+  certificate_id    String?   @unique
+  student_name      String?
+  course_name       String?
+  completion_date   DateTime? @db.Date
+  certificate_url   String?   @unique
+  created_at        DateTime? @default(now()) @db.Timestamp(6)
+  hash              String?
+  hash_generated_at DateTime? @db.Timestamptz(6)
+
+  @@index([created_at], map: "idx_certificates_created_at")
+}
+
+model verifications {
+  id             String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  certificate_id String
+  verified_at    DateTime? @default(now()) @db.Timestamp(6)
+  ip_address     String?
+  user_agent     String?
+}

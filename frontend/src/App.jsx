@@ -4,6 +4,7 @@ import Bookstore from "./pages/Bookstore";
 import Inventory from "./pages/Inventory";
 import AddBook from "./pages/AddBook";
 import Navbar from "./components/Navbar";
+import BooksList from "./components/BooksList";
 
 export default function App() {
   return (
