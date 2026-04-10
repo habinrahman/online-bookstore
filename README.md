@@ -1,64 +1,64 @@
-📘 Online Bookstore & Inventory Management — Full Stack Application
+# 📘 Online Bookstore & Inventory Management System
 
-A full-stack web application that allows users to browse and purchase books, while providing administrators with inventory management and data visualization capabilities.
+A full-stack web application that allows users to browse and purchase books while enabling administrators to manage inventory and visualize data through interactive dashboards.
 
-🚀 Tech Stack
-Frontend
+## 🚀 Live Features
 
-React.js
+### 🛒 Online Bookstore
+- Browse and purchase books
+- Dynamic availability updates
+- Responsive and modern UI
 
-Axios
+### 📦 Inventory Management (Admin)
+- Add, update, and manage books
+- Filter by availability
+- Track stock levels in real-time
 
-Chart.js / Recharts
+### 📊 Data Visualization
+- Bar Chart: Books by Genre
+- Pie Chart: Stock Availability Distribution
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Axios
+- Chart.js / Recharts
+- CSS
+
+### Backend
+- Node.js
+- Express.js
+- Prisma ORM
+
+### Database
+- PostgreSQL / MySQL
+
+### Tools
+- Prisma Client
+- Nodemon
+- Postman
+- Git & GitHub
+
+---
+
+## 📂 Project Structure
+online-bookstore/
+├── backend/
+├── frontend/
+├── docs/
+├── bookstore.pptx
+├── README.md
+└── LICENSE
 
 
+---
 
-Backend
+## 🗄️ Database Schema
 
-Node.js + Express
-
-Prisma ORM
-
-PostgreSQL / MySQL
-
-
-
-Tools
-
-Prisma Client
-
-Nodemon
-
-Postman
-
-GitHub (Private Repository)
-
-📁 Project Structure
-root/
- ├── backend/
- │    ├── src/
- │    │    ├── index.js
- │    │    ├── routes/
- │    │    ├── controllers/
- │    │    ├── prisma/
- │    ├── prisma/
- │    │    ├── schema.prisma
- │    │    └── migrations/
- │    ├── package.json
- │
- ├── frontend/
- │    ├── src/
- │    ├── public/
- │    ├── package.json
- │
- ├── README.md
- ├── project-demo.mp4 (screen recording)
- ├── .env.example
-
-🗄️ Database Schema (Prisma)
-
-Your Prisma schema defines a single model for books:
-
+```prisma
 model Book {
   id           Int      @id @default(autoincrement())
   title        String
@@ -68,31 +68,22 @@ model Book {
   availability String
   createdAt    DateTime @default(now())
 }
-
 📌 API Documentation
-1. Get All Books
+📚 Get All Books
 
 GET /api/books
-Returns a list of all books.
 
-2. Purchase a Book
+🛒 Purchase a Book
 
 POST /api/purchase
 
-Request Body:
 {
   "title": "Clean Code"
 }
-
-Action:
-
-Changes availability from "In Stock" → "Out of Stock"
-
-3. Add a New Book
+➕ Add a New Book
 
 POST /api/add-book
 
-Request Body:
 {
   "title": "New Book",
   "author": "Author",
@@ -100,108 +91,78 @@ Request Body:
   "price": 350,
   "availability": "In Stock"
 }
-
-4. Update Book Information
+✏️ Update Book Information
 
 PUT /api/update-book/:id
 
-Request Body:
 {
   "title": "Updated Title",
   "price": 499
 }
-
-🎨 Frontend Features
-Screen 1 — Online Bookstore
-
-✔ View all books
-✔ Purchase a book
-✔ Availability updates dynamically
-✔ Modern UI, responsive design
-
-Screen 2 — Inventory Management (Admin)
-
-✔ Manage all books
-✔ Filter by availability
-✔ Summary Cards:
-
-In Stock Count
-
-Out of Stock Count
-
-Data Visualizations
-
-✔ Bar Chart — Books count by genre
-✔ Pie Chart — Availability distribution
-
-🛠️ Setup Instructions
-1. Clone the Repository
-git clone <your-private-repo-url>
-cd project-folder
-
-⚙️ Backend Setup
+⚙️ Setup Instructions
+1️⃣ Clone the Repository
+git clone https://github.com/habinrahman/online-bookstore.git
+cd online-bookstore
+2️⃣ Backend Setup
 cd backend
 npm install
 
-Create .env file
-DATABASE_URL="your-postgres-or-mysql-connection-url"
+Create a .env file:
 
+DATABASE_URL="your_database_connection_url"
 
-Or use the .env.example provided.
+Run Prisma migrations:
 
-Run Migrations
 npx prisma migrate dev
 
-Start Backend
+Start the backend:
+
 npm run dev
 
+Backend runs at: http://localhost:5000
 
-Backend will run at:
-👉 http://localhost:5000
-
-🎨 Frontend Setup
-cd frontend
+3️⃣ Frontend Setup
+cd ../frontend
 npm install
 npm start
 
-
-Frontend will run at:
-👉 http://localhost:3000
+Frontend runs at: http://localhost:3000
 
 🧪 Running Tests
-
-(If you added tests)
-
-Backend Tests (Jest)
+Backend
 npm test
-
-Frontend Tests (React Testing Library)
+Frontend
 npm test
+🎥 Demo
 
-🎥 Demo Video
+A complete walkthrough is included in:
 
-A complete screen recording demonstrating all functionalities is included in:
+📁 bookstore.pptx
 
-project-demo.mp4
-
-🧱 Project Highlights
-
-Fully responsive UI
-
-Clean REST API design
-
-Prisma ORM with migrations
-
-Real RDBMS (PostgreSQL/MySQL)
-
-Interactive charts
-
-Proper folder structure
-
-Error handling & validation
-
-Professional documentation
-
-👤 Author
+✨ Key Highlights
+Full-stack MERN-style architecture
+RESTful API with Prisma ORM
+Interactive charts and dashboards
+Responsive and modern UI
+Clean and modular code structure
+Real-world database integration
+Production-ready documentation
+📈 Future Enhancements
+User authentication and authorization (JWT)
+Payment gateway integration (Stripe/Razorpay)
+Docker containerization
+Cloud deployment (AWS/Vercel/Render)
+Order history and user profiles
+Search and recommendation system
+👨‍💻 Author
 
 Habin Rahman
+🎓 Master of Computer Applications (MCA)
+💼 Software Engineer | Full-Stack Developer
+
+🌐 GitHub: https://github.com/habinrahman
+📧 Email: habin936@gmail.com
+💼 LinkedIn: https://www.linkedin.com/in/habinrahman
+📄 License
+
+This project is licensed under the MIT License
